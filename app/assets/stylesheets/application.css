@@ -1,0 +1,144 @@
+
+html {
+	background-color: #fff;
+	padding-top: 53px;
+	padding-bottom: 80px;
+}
+
+.square-corner{
+ -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+/*footer section */
+.kuviyal-menu-web{
+	position:fixed;
+	bottom:0;
+	width:100%;
+	outline: 0;
+	font-size: 95%;
+	vertical-align: baseline;
+	background: #EBEAF0;	
+	border-top: dotted 1px #428bca;
+	font-weight: bold;
+	border-top: 5px solid #08c;
+}
+
+.footer-web a{
+	color: #5a5a5a;
+}
+
+.footer-web a:hover, .footer-web a:focus, .footer-web a:active, .footer-web a.active {
+	background-color:transparent;
+	text-decoration:underline;
+}
+
+.footer-web button{
+	color: #5a5a5a;
+}
+
+.footer-web button:hover, .footer-web button:focus, .footer-web button:active, .footer-web button.active {
+	background-color:transparent;
+	text-decoration:underline;
+}
+/* End footer section */
+
+
+ /* box css */
+.rgap{
+  margin:0px;
+  padding:0px;
+}
+
+.sexy_line { 
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: dotted 1px #ddd;
+}
+
+.box{
+	margin:1%;
+	padding:2.5%;
+	line-height: 1.428571429;
+	border: solid 1px #428bca;
+	background-color:#fff;
+	-webkit-box-shadow: 0px 2px 4px #ddd;
+	-moz-box-shadow: 0px 2px 4px #ddd;
+	box-shadow: 0px 2px 4px #ddd;
+	
+}
+.box span{
+ color:#428bca;
+}
+
+.box h1{
+	outline: 0;
+	font-size: 1.5rem;
+	vertical-align: baseline;
+	padding:0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	line-height: 1.27;
+	font-weight:bold;
+}
+/* end box css */
+
+
+/* search css */
+.search-warpper{
+	position:fixed;
+	top:0;
+	width:100%;
+	padding: 4px 0 4px 0;
+	vertical-align: baseline;
+	background: #fff;	
+	-webkit-box-shadow: 0px 2px 4px #000000;
+	-moz-box-shadow: 0px 2px 4px #000000;
+	box-shadow: 0px 2px 4px #000000;
+	z-index:1;
+}
+#searchBox{
+	border:1px solid #428bca;
+}
+/* end search css */
+
+/*alert-message*/
+.alert.alert-success.alert-message{
+	padding: 0 0 3px 0;
+	margin: 0 2px 0 2px;
+	background-color: transparent;
+	color: inherit;
+	border: 0px;
+}
+/*end alert-message*/
+
+
+ /*login button */
+#facebook-button {
+    color: #000;
+    -webkit-border-radius: 0 0 8px 8px;
+    -moz-border-radius: 0 0 8px 8px;
+    border-radius: 0 0 8px 8px;
+    background: #EBEAF0;
+    font-weight: 550;
+}
+
+#facebook-button:hover{
+    color: #fff;
+     background: #3b5998;
+    -webkit-border-radius: 0 0 8px 8px;
+    -moz-border-radius: 0 0 8px 8px;
+    border-radius: 0 0 8px 8px;
+}
+/* end login button */
+
+
+.ui-autocomplete, 
+.ui-front, 
+.ui-menu, 
+.ui-widget, 
+.ui-widget-content,
+.ui-corner-all{
+	border-radius: 0;
+}

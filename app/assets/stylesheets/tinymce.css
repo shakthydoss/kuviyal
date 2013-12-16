@@ -1,0 +1,20 @@
+
+/* TinyMCE specific rules */
+body.mceContentBody {
+   background: #FFF;
+}
+
+
+
+body, td, pre {
+	 font-family: 'Roboto Slab', serif;
+	 font-size: 16px;
+	 
+
+}
+
+.mce-panel{
+	-webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}

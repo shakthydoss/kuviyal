@@ -1,0 +1,136 @@
+<%= form_for @event, url: {action: "save"}, html: {class: "form-horizontal"} do |f| %>
+  
+
+  	<div class="form-group  <%='has-error' if @event.errors[:name].present? %>">
+		<label for="name"  >Name</label>					
+		<%= f.text_field :name, :placeholder => "The Asian Conference on Arts and Humanities", :class => "form-control form-control-square" %>
+		<span class="help-block"><%=@event.errors[:name].join(", ") if @event.errors[:name].present? %></span>			
+	</div>
+
+	
+	<div class="form-group <%='has-error' if @event.errors[:typeId].present? %>">
+		<label for="typeId" >Type</label>					
+		<%= f.select :typeId,   options_from_collection_for_select(@types, 'id', :name_for_select) , {}, { :class => 'form-control form-control-square' } %>
+		<span class="help-block"><%=@event.errors[:typeId].join(", ") if @event.errors[:typeId].present? %></span>
+	</div>
+
+	<div class="form-group <%='has-error' if @event.errors[:categoryId].present? %>">
+		<label for="categoryId" >Category</label>					
+		<%= f.select :categoryId,   options_from_collection_for_select(@categories, 'id', :name_for_select) , {}, { :class => 'form-control form-control-square' } %>
+		<span class="help-block"><%=@event.errors[:categoryId].join(", ") if @event.errors[:categoryId].present? %></span>
+	</div>
+
+
+  	<div class="form-group <%='has-error' if @event.errors[:organizer].present? %>">
+		<label for="organizer" >Organizer</label>					
+		<%= f.text_field :organizer, :placeholder=> "IAFOR - The International Academic Forum", :class => "form-control form-control-square" %>			
+		<span class="help-block"><%=@event.errors[:organizer].join(", ") if @event.errors[:organizer].present? %></span>		
+	</div>	
+
+  	<div class="form-group <%='has-error' if @event.errors[:officalWebsite].present? %>">
+		<label for="officalWebsite" >Offical Website</label>					
+		<%= f.text_field :officalWebsite, :placeholder=> "http://acah.iafor.org/", :class => "form-control form-control-square" %>	
+		<span class="help-block"><%=@event.errors[:officalWebsite].join(", ") if @event.errors[:officalWebsite].present? %></span>				
+	</div>
+
+	<div class="form-group <%='has-error' if @event.errors[:description].present? %>">
+		<label for="description" >Description</label>					
+		<%= f.text_area :description, :rows => 5 , :placeholder=> "Enter a short description", :class => "form-control form-control-square" %>	
+		<span class="help-block"><%=@event.errors[:description].join(", ") if @event.errors[:description].present? %></span>				
+	</div>	
+
+	<div class="form-group <%='has-error' if @event.errors[:specialNotes].present? %>">
+		<label for="specialNotes" >Special Notes</label>	
+		<p class="help-block"><small>Use this field to specify special notes about your event. Leave this field as empty if it is not applicable to your event.</small></p>				
+		<%= f.text_area :specialNotes , :rows => 5 , :placeholder=> "Enter important text such registation, last date of submition ect.", :class => "form-control form-control-square"%>	
+		<span class="help-block"><%=@event.errors[:specialNotes].join(", ") if @event.errors[:specialNotes].present? %></span>				
+	</div>		
+
+
+     <div class="form-group">
+		<label for="categoryId">Tags</label>
+		<div>
+			<p><small>Use tags to quickly tell readers what a event is about. Tags also make it easier for people to find your content. At maximum 5 tags are allowed.</small></p>
+		</div>
+		<select  id="e1" name="event_tags" multiple="multiple" width="100%" style="width: 100%" >
+		<optgroup label="Conference">
+               <option value="1">Data mining</option>
+               <option value="3">Text mining</option>
+               <option value="2">Text mining</option>
+        </optgroup>
+		<optgroup label="Others">
+			<option value="3">Dance</option>
+			<option value="4">Music</option>
+			<option value="5">Show</option>
+		</optgroup>
+	</select>				
+	</div>
+
+  	<div class="form-group <%='has-error' if @event.errors[:contactPerson].present? %>">
+		<label for="contactPerson" >Contact Person</label>					
+		<%= f.text_field :contactPerson , :placeholder => "Mr. John Augustine", :class => "form-control form-control-square" %>	
+		<span class="help-block"><%=@event.errors[:contactPerson].join(", ") if @event.errors[:contactPerson].present? %></span>			
+	</div>
+
+
+	<div class="form-group">
+		<label for="contactNumber" >Contact Number</label>					
+		<%= f.text_field :contactNumber , :placeholder => "9876543210", :class => "form-control form-control-square" %>	
+		<span class="help-block"><%=@event.errors[:contactNumber].join(", ") if @event.errors[:contactNumber].present? %></span>				
+	</div>
+
+	<div class="form-group <%='has-error' if @event.errors[:contactEmailId].present? %>">
+		<label for="contactEmailId" >Contact Email</label>					
+		<%= f.text_field :contactEmailId , :placeholder => "john.aug@acah.org", :class => "form-control form-control-square" %>		
+		<span class="help-block"><%=@event.errors[:contactEmailId].join(", ") if @event.errors[:contactEmailId].present? %></span>				
+	</div>
+
+	<%= fields_for @address do |a| %>
+		<div class="form-group">
+			<label for="addressLine1:" >Address Line 1</label>					
+			<%= a.text_field :addressLine1 , :class => "form-control form-control-square" %>			
+		</div>
+
+		<div class="form-group">
+			<label for="addressLine2:" >Address Line 2</label>					
+			<%= a.text_field :addressLine2 , :class => "form-control form-control-square" %>			
+		</div>
+
+		<div class="form-group">
+			<label for="city:" >City</label>					
+			<%= a.text_field :city , :class => "form-control form-control-square" %>			
+		</div>
+
+		<div class="form-group">
+			<label for="stateId:" >State</label>					
+			<%= a.text_field :state , :class => "form-control form-control-square" %>			
+		</div>
+
+		<div class="form-group <%='has-error' if @address.errors[:postalCode].present? %>">
+			<label for="postalCode:" >Postal Code</label>					
+			<%= a.text_field :postalCode , :class => "form-control form-control-square" %>			
+			<span class="help-block"><%=@address.errors[:postalCode].join(", ") if @address.errors[:postalCode].present? %></span>	
+		</div>
+
+		<div class="form-group">
+			<label for="countryId:" >Country</label>					
+			<%= a.select :countryId,   options_from_collection_for_select(@country, 'id', :name_for_select) , {}, { :class => 'form-control form-control-square' } %>			
+		</div>
+
+	<% end%>
+	
+
+	
+
+	<div class="form-group">
+		<div >
+			<button type="submit" class="btn btn-square btn-primary">Reset</button>
+			<button type="submit" class="btn btn-square btn-primary">Preview</button>
+			<%= f.submit "Submit" , :class => "btn btn-square btn-primary" %>		
+		</div>
+	</div>
+
+
+
+<% end %>
+

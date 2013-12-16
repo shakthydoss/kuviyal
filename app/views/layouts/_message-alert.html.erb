@@ -1,0 +1,23 @@
+<!-- message-alert -->
+
+<!-- /message-alert -->
+
+<% if flash[:notice] %>
+  <div class="notice">  </div>	
+
+<div class="container">
+<div class="row">
+	<div class="col-md-2 rgap">&nbsp;</div>
+	<div class="col-md-8 rgap">
+	<div class="alert alert-success alert-message">
+		<center>
+				<span class="fa fa-bell-o" data-dismiss="alert" aria-hidden="true" ></span>&nbsp;&nbsp;
+				<%= flash[:notice].html_safe %>
+		</center>
+	</div>
+
+	</div>
+	<div class="col-md-2 rgap">&nbsp;</div>
+</div>
+</div>
+<%end%>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KuviyalEvent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <%= stylesheet_link_tag  "application", "bootstrap", "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", "bootflat", "bootflat-extensions",  "bootflat-square", :media => "all" %>
+
+	  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  <!--[if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+	  <![endif]-->
+
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+  html{
+  	padding-top:0px;
+  	margin: 0px;
+  }
+  </style>
+</head>
+<body>
+
+<%= render :partial => "layouts/home-menu" %>
+<%= render :partial => "layouts/message-alert" %>
+
+
+<%= yield %>
+
+<%= render :partial => "layouts/footer-menu" %>
+
+
+<!-- Modal  -->
+<%= render :partial => "layouts/modal-about" %>
+<%= render :partial => "layouts/modal-policy" %>
+<%= render :partial => "layouts/modal-tags" %>
+<%= render :partial => "layouts/modal-adv-filter" %>
+<!-- /Modal -->
+
+
+<%= javascript_include_tag "//code.jquery.com/jquery-1.10.2.min.js", "application", "jquery.placeholder.min",  "bootstrap.min" %>
+
+
+<!-- Search Placeholder Animation -->
+<script>
+	$(document).ready(function()  {
+		$('input, textarea').placeholder();        
+	});
+	function changePlaceholder() {
+		$('#searchBox').attr('placeholder', placeHolders[x]);
+		x++;
+		if(x >= placeHolders.length) {
+			x = 0;
+		}	
+		setTimeout('changePlaceholder()', 3000);
+	}
+	var placeHolders = new Array(),
+	x = 0;
+	placeHolders[0] = "Search by keyword E.g. hackathon";
+	placeHolders[1] = "Search by title E.g. olympics 2016";
+	placeHolders[2] = "Search by place E.g. @chennai";
+	placeHolders[3] = "Search by category E.g. [conference]";
+	t = setTimeout('changePlaceholder()', 2000);
+
+</script>
+<!--[if lte IE 9 ]>
+	<script>
+		clearTimeout(t);
+	</script>
+<![endif]-->
+<!-- / end of search Placeholder Animation -->
+
+ <!-- Init tool tip -->
+  <script>
+	$(document).ready(function() {
+		$(".btn").tooltip();
+	});
+  </script>
+
+
+<script type="text/javascript">
+	$(window).resize(function(){
+	    $('.center-of-page').css({
+	        position:'relative',
+	        top: (($(window).height() - $('.center-of-page').outerHeight())/2) -125,
+	    });
+	  });
+	// To initially run the function:
+	$(window).resize();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<% if session[:kuviyal_is_user_authenticated] -%>
+<%else %>
+<% end %>
+
+<!-- footer  -->
+	<div class="kuviyal-menu-web">		
+		<div class="container" >
+			<div class="row">
+				<div class="col-md-12">
+					<div style="padding-top:5px">
+					 <center>&nbsp;&nbsp;&nbsp;&copy kuviyal, All rights reserved.</center>
+					</div>	
+				</div>
+			</div>
+		</div>
+		
+		  <div class="container" style="max-width:1220px">
+			<div class="row">
+				<div class="col-md-4 footer-web">
+					<div class="pull-left">
+					   <a href="/" class="btn btn-link btn-square"  ><span class="fa fa-home">&nbsp;</span>Home</a>
+					   <a href="#" class="btn btn-link btn-square" data-toggle="modal" data-target="#aboutModal" ><span class="fa fa-bell">&nbsp;</span>About</a>
+					   <a href="#" class="btn btn-link btn-square" data-toggle="modal" data-target="#policyModal"><span class="fa fa-book">&nbsp;</span>Policy</a>
+					   <a href="#" class="btn btn-link btn-square"><span class="fa fa-envelope">&nbsp;</span>Contact</a>
+					</div>
+				</div>
+				<div class="col-md-4 footer-web">
+					<center>
+					   <a href="#" class="btn btn-link btn-square" data-toggle="tooltip" title="Find us on Facebook"><span class="fa fa-facebook">&nbsp;</span>Facebook</a>
+					   <a href="#" class="btn btn-link btn-square" data-toggle="tooltip" title="Follow us on Twitter"><span class="fa fa-twitter">&nbsp;</span>Twitter</a>
+					   <a href="#" class="btn btn-link btn-square" data-toggle="tooltip" title="Find us on Google+"><span class="fa fa-google-plus">&nbsp;</span>Google+</a>
+					</center>
+				</div>
+				<div class="col-md-4 footer-web">
+						<div class="pull-right">	
+							<!--all-->
+							<a href="/event/list" type="button" class="btn btn-link btn-square" data-toggle="tooltip" title="List all events"><span class="fa fa-globe"></span>&nbsp;All&nbsp;</a>
+							<!--/all-->							
+							<!--today-->
+							<a href="#" type="button" class="btn btn-link btn-square" data-toggle="tooltip" title="what's happening today"><span class="fa fa-calendar"></span>&nbsp;Today&nbsp;</a>
+							<!--/today-->			
+							<!--filter-->
+							<div class="btn-group dropup btn-group-square">
+								<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"><span class="fa fa-filter">&nbsp;Filter&nbsp;<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#" data-toggle="modal" data-target="#tagsModal" >Filter by tags</a></li>									
+									<li class="divider"></li>
+									<li><a href="#" data-toggle="modal" data-target="#abvfileterModal">Advance filter</a></li>
+								</ul>
+							</div>
+							<!--/filter-->							
+							<!--user-->
+							<% if session[:kuviyal_is_user_authenticated] -%>
+							<div class="btn-group dropup btn-group-square">
+								<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user">&nbsp;You&nbsp;<span class="caret"></span></button>
+								<ul class="dropdown-menu">									
+									<li><a href="#">Add Event</a></li>
+									<li><a href="#">Edit Event</a></li>
+									<li ><a href="#">Manage Calendar</a></li>	
+									<li class="divider"></li>
+									<li><a href="/auth/destroy">Logout</a></li>	
+									<li class="disabled"><a href="#"><%= session[:kuviyal_user_name]%></a></li>
+								</ul>
+							</div>							
+							<%else %>
+							<div class="btn-group dropup btn-group-square">
+								<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user">&nbsp;Guest&nbsp;<span class="caret"></span></button>
+								<ul class="dropdown-menu">									
+									<li><a href="#">Add Event</a></li>
+									<li><a href="#">Edit Event</a></li>
+									<li class="disabled"><a href="#">Manage Calendar</a></li>	
+									<li class="divider"></li>
+									<li><a href="/auth/facebook">Login</a></li>	
+								</ul>
+							</div>
+							<% end %>
+							<!--/user-->
+										
+						</div>
+				</div>			
+			</div>
+		  </div>
+	</div> 
+<!-- end of footer  -->
