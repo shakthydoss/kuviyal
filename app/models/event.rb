@@ -44,7 +44,7 @@ class Event < ActiveRecord::Base
   def event_end_should_be_lesser_than_start_date
   	if !startDate.blank?
   		if(to_date < startDate)
-  			errors.add(:to_date,"End Date cannot be lesser than start date.")
+  			errors.add(:to_date,"End Date can't be lesser than start date.")
   		end
   	end 
   end

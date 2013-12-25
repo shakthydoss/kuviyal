@@ -35,8 +35,21 @@ class EventController < ApplicationController
   def save
       @event =  Event.new(params[:event])
       addrs = Address.new (params[:address])
-
-      if @event.save
+      add_valid = true
+      
+      if @event.categoryId != 3 && @event.categoryId != -1
+        if !addrs.valid?
+          add_valid = false
+          @event.valid?
+          puts "*********************************"
+        end 
+      end
+      
+      if add_valid && @event.save
+         if @event.categoryId != 3 && @event.categoryId != -1
+          addrs.eventId = @event.id
+          addrs.save
+         end
          flash[:notice] = "Event has been successfully added. Click <a href='/event/show/"+ @event.id.to_s + "'> here</a> view the event."
          redirect_to :action => 'list'
       else
@@ -53,7 +66,6 @@ class EventController < ApplicationController
         @categories.insert(0, select)
 
         @address = addrs
-        @address.valid?
 
         @country = Country.all
         select = Category.new 
