@@ -1,8 +1,22 @@
 
 html {
-	background-color: #fff;
+	background-color: #ededed;
 	padding-top: 53px;
 	padding-bottom: 80px;
+}
+
+body{
+	background-color: #ededed !important;
+}
+.container-shadow{
+	  box-shadow: 0 9px 0px 0px #ededed, 0 -9px 0px 0px #ededed, 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 15px -4px rgba(31, 73, 125, 0.8);
+}
+
+.box-wapper{
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	padding-right: 0px !important;
+	padding-left: 0px !important;
 }
 
 .square-corner{
@@ -58,7 +72,7 @@ html {
 }
 
 .box{
-	margin:1%;
+	margin:0px 7px 16px 7px;
 	padding:2.5%;
 	line-height: 1.428571429;
 	border: solid 1px #428bca;
@@ -68,6 +82,7 @@ html {
 	box-shadow: 0px 2px 4px #ddd;
 	
 }
+
 .box span{
  color:#428bca;
 }

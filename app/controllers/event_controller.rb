@@ -8,6 +8,11 @@ class EventController < ApplicationController
   end
 
   def add
+     if(session[:kuviyal_is_user_authenticated] != true)
+        flash[:notice] = "Please login to add events."
+        redirect_to :action => 'home' and return;
+     end
+
       @event = Event.new
 
       @types = Type.all 
@@ -37,11 +42,11 @@ class EventController < ApplicationController
       addrs = Address.new (params[:address])
       add_valid = true
       
+      # validation for address
       if @event.categoryId != 3 && @event.categoryId != -1
         if !addrs.valid?
           add_valid = false
           @event.valid?
-          puts "*********************************"
         end 
       end
       
@@ -109,7 +114,8 @@ class EventController < ApplicationController
     when "home"
       "home-layout"
     else
-      "application"
+      #"application"
+      "try-layout"
     end
  end
 

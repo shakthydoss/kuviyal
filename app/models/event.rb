@@ -26,7 +26,7 @@ class Event < ActiveRecord::Base
 
   validates :contactPerson , :presence => { :message => "Please enter contact person name." }  
   validates :contactNumber, :numericality => { only_integer: true  , :message => "Please enter valid phone number"}, :allow_blank => true
-  validates_format_of :contactEmailId, :allow_blank => false, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix , :message => "Please enter valid email id." 
+  validates_format_of :contactEmailId, :allow_blank => false, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/, :message => "Please enter valid email id." 
 
   #registering custom validation methods 
   validate :event_date_cannot_be_in_past , :event_end_should_be_lesser_than_start_date

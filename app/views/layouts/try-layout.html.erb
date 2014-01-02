@@ -14,23 +14,15 @@
 
   <%= csrf_meta_tags %>
 </head>
-<body style="background-color: #ededed;">
+<body >
 
 <%= render :partial => "layouts/search" %>
 <%= render :partial => "layouts/message-alert" %>
-
 
 <%= yield %>
 
 <%= render :partial => "layouts/footer-menu" %>
 
-
-<!-- Modal  -->
-<%= render :partial => "layouts/modal-about" %>
-<%= render :partial => "layouts/modal-policy" %>
-<%= render :partial => "layouts/modal-tags" %>
-<%= render :partial => "layouts/modal-adv-filter" %>
-<!-- /Modal -->
 
 
 <%= javascript_include_tag "//code.jquery.com/jquery-1.10.2.min.js", "//code.jquery.com/ui/1.10.3/jquery-ui.js" , "application", "jquery.placeholder.min",  "bootstrap.min" ,"select2.min" , "jquery.bootstrap.wizard.min" %>
@@ -90,74 +82,7 @@
 
 
 
- <script type="text/javascript">
-        $(document).ready(function() { 
-        	$("#e1").select2({
-			    
-			}) 
-        });
- </script>
 
-
-<script type="text/javascript">
-$(document).ready(function() {
-  	$('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'});
-});
-</script>
-
-
-<!-- autocomplete for city -->
-  <script>
-	  $(function() {
-		function log( message ) {
-		  $( "<div>" ).text( message ).prependTo( "#log" );
-		  $( "#log" ).scrollTop( 0 );
-		}
-	 
-			$( "#address_city" ).autocomplete({
-			  source: function( request, response ) {
-				$.ajax({
-				  url: "http://ws.geonames.org/searchJSON",
-				  dataType: "jsonp",
-				  data: {
-					featureClass: "P",
-					style: "full",
-					maxRows: 8,
-					name_startsWith: request.term
-				  },
-				  success: function( data ) {
-					response( $.map( data.geonames, function( item ) {
-					  return {
-						label: item.name ,
-						value: item.name
-					  }
-					}));
-				  }
-				});
-			  },
-			  minLength: 1,
-			  select: function( event, ui ) {
-				
-			  }
-			  
-			});
-	  });
-  </script>
-
-
-   <script type="text/javascript">
-   		$(document).ready(function()  {
-	   		$('#event_categoryId').on('change', function() {
-	   		 if(this.value == 3){
-	   		 	// hiding the address 
-	   		 	$(".address-wrapper").css('display', 'none');
-	   		 }else{
-	   		 	$(".address-wrapper").css('display', 'block');
-	   		 }
-			  
-			});
-		  });
-    </script>
 
 </body>
 </html>

@@ -86,33 +86,33 @@
 	</div>
 
 	<%= fields_for @address do |a| %>
-		<div class="form-group">
+		<div class="form-group address-wrapper">
 			<label for="addressLine1:" >Address Line 1</label>					
 			<%= a.text_field :addressLine1 , :class => "form-control form-control-square" %>			
 		</div>
 
-		<div class="form-group">
+		<div class="form-group address-wrapper">
 			<label for="addressLine2:" >Address Line 2</label>					
 			<%= a.text_field :addressLine2 , :class => "form-control form-control-square" %>			
 		</div>
 
-		<div class="form-group <%='has-error' if @address.errors[:city].present? %>">
+		<div class="form-group address-wrapper <%='has-error' if @address.errors[:city].present? %>">
 			<label for="city:" >City / Province / Town</label>					
 			<%= a.text_field :city , :class => "form-control form-control-square" %><span class="help-block"><%=@address.errors[:city].join(", ") if @address.errors[:city].present? %></span>			
 		</div>
 
-		<div class="form-group">
+		<div class="form-group address-wrapper">
 			<label for="stateId:" >State</label>					
 			<%= a.text_field :state , :class => "form-control form-control-square" %>			
 		</div>
 
-		<div class="form-group <%='has-error' if @address.errors[:postalCode].present? %>">
+		<div class="form-group address-wrapper <%='has-error' if @address.errors[:postalCode].present? %>">
 			<label for="postalCode:" >Postal Code</label>					
 			<%= a.text_field :postalCode , :class => "form-control form-control-square" %>			
 			<span class="help-block"><%=@address.errors[:postalCode].join(", ") if @address.errors[:postalCode].present? %></span>	
 		</div>
 
-		<div class="form-group <%='has-error' if @address.errors[:countryId].present? %>">
+		<div class="form-group address-wrapper <%='has-error' if @address.errors[:countryId].present? %>">
 			<label for="countryId:" >Country</label>					
 			<%= a.select :countryId,   options_from_collection_for_select(@country, 'id', :name_for_select) , {}, { :class => 'form-control form-control-square' } %>	
 			<span class="help-block"><%=@address.errors[:countryId].join(", ") if @address.errors[:countryId].present? %></span>			
@@ -132,6 +132,6 @@
 	</div>
 
 
-
 <% end %>
+
 
