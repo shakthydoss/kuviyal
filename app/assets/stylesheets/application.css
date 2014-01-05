@@ -34,11 +34,14 @@ body{
 	font-size: 95%;
 	vertical-align: baseline;
 	background: #EBEAF0;	
+	/*background-color: #fff;*/
 	border-top: dotted 1px #428bca;
 	font-weight: bold;
 	border-top: 5px solid #08c;
 }
-
+.required{
+	color: red;
+}
 .footer-web a{
 	color: #5a5a5a;
 }

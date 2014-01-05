@@ -51,12 +51,14 @@ class EventController < ApplicationController
       end
       
       if add_valid && @event.save
+         puts "\n\n *************** 1 I comming inside**************"
          if @event.categoryId != 3 && @event.categoryId != -1
           addrs.eventId = @event.id
           addrs.save
+          puts "\n\n *************** 2 I comming inside**************"
          end
          flash[:notice] = "Event has been successfully added. Click <a href='/event/show/"+ @event.id.to_s + "'> here</a> view the event."
-         redirect_to :action => 'list'
+         redirect_to :action => 'home'
       else
         @types = Type.all 
         select = Type.new 
