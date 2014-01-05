@@ -13,6 +13,8 @@ class EventController < ApplicationController
         redirect_to :action => 'home' and return;
      end
 
+     flash[:notice] = "<strong>Tips </strong>! Make sure you read the tips before posting the events"
+
       @event = Event.new
 
       @types = Type.all 
@@ -20,12 +22,14 @@ class EventController < ApplicationController
       select.id = -1 
       select.name = "select"
       @types.insert(0, select)
+      @SelecttypeId = -1
 
       @categories = Category.all
       select = Category.new 
       select.id = -1 
       select.name = "select"
       @categories.insert(0, select)
+      @SelectcategoryId = -1
 
       @address = Address.new
 
@@ -33,7 +37,8 @@ class EventController < ApplicationController
       select = Category.new 
       select.id = -1 
       select.name = "select"
-      @country.insert(0, select)      
+      @country.insert(0, select) 
+      @SelectcountryId = -1     
   
   end
 
@@ -65,12 +70,14 @@ class EventController < ApplicationController
         select.id = -1 
         select.name = "select"
         @types.insert(0, select)
+        @SelecttypeId  = @event.typeId 
 
         @categories = Category.all
         select = Category.new 
         select.id = -1 
         select.name = "select"
         @categories.insert(0, select)
+        @SelectcategoryId = @event.categoryId
 
         @address = addrs
 
@@ -79,6 +86,8 @@ class EventController < ApplicationController
         select.id = -1 
         select.name = "select"
         @country.insert(0, select)  
+        @SelectcountryId  = addrs.countryId
+
         render "add" 
       end 
   end

@@ -10,13 +10,13 @@
 	
 	<div class="form-group <%='has-error' if @event.errors[:typeId].present? %>">
 		<label for="typeId" >Type <span class="required">*</span></label>					
-		<%= f.select :typeId,   options_from_collection_for_select(@types, 'id', :name_for_select) , {}, { :class => 'form-control form-control-square' } %>
+		<%= f.select :typeId,   options_from_collection_for_select(@types, 'id', :name_for_select,@SelecttypeId) , {}, { :class => 'form-control form-control-square' } %>
 		<span class="help-block"><%=@event.errors[:typeId].join(", ") if @event.errors[:typeId].present? %></span>
 	</div>
 
 	<div class="form-group <%='has-error' if @event.errors[:categoryId].present? %>">
 		<label for="categoryId" >Category <span class="required">*</span></label>					
-		<%= f.select :categoryId,   options_from_collection_for_select(@categories, 'id', :name_for_select) , {}, { :class => 'form-control form-control-square' } %>
+		<%= f.select :categoryId,   options_from_collection_for_select(@categories, 'id', :name_for_select, @SelectcategoryId) , {}, { :class => 'form-control form-control-square' } %>
 		<span class="help-block"><%=@event.errors[:categoryId].join(", ") if @event.errors[:categoryId].present? %></span>
 	</div>
 
@@ -114,7 +114,7 @@
 
 		<div class="form-group address-wrapper <%='has-error' if @address.errors[:countryId].present? %>">
 			<label for="countryId:" >Country <span class="required">*</span></label>					
-			<%= a.select :countryId,   options_from_collection_for_select(@country, 'id', :name_for_select) , {}, { :class => 'form-control form-control-square' } %>	
+			<%= a.select :countryId,   options_from_collection_for_select(@country, 'id', :name_for_select,@SelectcountryId) , {}, { :class => 'form-control form-control-square' } %>	
 			<span class="help-block"><%=@address.errors[:countryId].join(", ") if @address.errors[:countryId].present? %></span>			
 		</div>
 
