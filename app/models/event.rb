@@ -20,7 +20,6 @@ class Event < ActiveRecord::Base
   validates :categoryId, numericality: { :greater_than => 0  , :message => "Please select event category."}
   validates :organizer, presence: { :message => "Organizer can't be blank." }  
   
-  validates :startDate , :presence => true
 
   validates_format_of :officalWebsite, :allow_blank => false, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix , :message => "Please enter valid url." 
 
@@ -43,8 +42,8 @@ class Event < ActiveRecord::Base
   #custom Method for validating event end date 
   def event_end_should_be_lesser_than_start_date
   	if !startDate.blank?
-  		if(to_date < startDate)
-  			errors.add(:to_date,"End Date can't be lesser than start date.")
+  		if(endDate < startDate)
+  			errors.add(:endDate,"End Date can't be lesser than start date.")
   		end
   	end 
   end

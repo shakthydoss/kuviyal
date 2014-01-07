@@ -52,19 +52,59 @@
 		<div>
 			<p><small>Use tags to quickly tell readers what a event is about. Tags also make it easier for people to find your content. At maximum 5 tags are allowed.</small></p>
 		</div>
-		<select  id="e1" name="event_tags" multiple="multiple" width="100%" style="width: 100%" >
-		<optgroup label="Conference">
-               <option value="1">Data mining</option>
-               <option value="3">Text mining</option>
-               <option value="2">Text mining</option>
-        </optgroup>
-		<optgroup label="Others">
-			<option value="3">Dance</option>
-			<option value="4">Music</option>
-			<option value="5">Show</option>
-		</optgroup>
-	</select>				
+
+		<select class="multiple_tags" name="multiple_tags[]" multiple="true" width="100%">
+			<optgroup label="Mathematics">
+				<option value="analysis">Analysis</option>
+				<option value="algebra">Linear Algebra</option>
+				<option value="discrete">Discrete Mathematics</option>
+				<option value="numerical">Numerical Analysis</option>
+				<option value="probability">Probability Theory</option>
+			</optgroup>
+			<optgroup label="Computer Science">
+				<option value="programming">Introduction to Programming</option>
+				<option value="automata">Automata Theory</option>
+				<option value="complexity">Complexity Theory</option>
+				<option value="software">Software Engineering</option>
+			</optgroup>
+		</select>
+
 	</div>
+
+     <div class="form-group <%='has-error' if @event.errors[:startDate].present? %>">
+     	<label for="startDate" >Event Start Date <span class="required">*</span></label>
+     	<div>
+     		<%=  f.date_select :startDate, :class => "form-control form-control-square" %>	
+     	</div>
+				<span class="help-block"><%=@event.errors[:startDate].join(", ") if @event.errors[:startDate].present? %></span>			
+	 </div>
+
+	 <div class="form-group <%='has-error' if @event.errors[:endDate].present? %>">
+     	<label for="endDate" >Event End Date <span class="required">*</span></label>
+		  <div>
+		  	<%=  f.date_select :endDate, :class => "form-control form-control-square" %>	
+		  </div>
+		  <span class="help-block"><%=@event.errors[:endDate].join(", ") if @event.errors[:endDate].present? %></span>			
+	 </div>
+
+
+	 <div class="form-group <%='has-error' if @event.errors[:startTime].present? %>">
+     	<label for="startTime" >Event Start Time <span class="required">*</span></label>
+		  <div>
+		  	<%=  f.time_select :startTime, {:ampm => true}, :class => "" %>	
+		  </div>
+		  <span class="help-block"><%=@event.errors[:startTime].join(", ") if @event.errors[:startTime].present? %></span>			
+	 </div>
+
+
+	 <div class="form-group <%='has-error' if @event.errors[:endTime].present? %>">
+     	<label for="endTime" >Event Start Time <span class="required">*</span></label>
+		  <div>
+		  	<%=  f.time_select :endTime, {:ampm => true}, :class => "" %>	
+		  </div>
+		  <span class="help-block"><%=@event.errors[:endTime].join(", ") if @event.errors[:endTime].present? %></span>			
+	 </div>	 
+
 
   	<div class="form-group <%='has-error' if @event.errors[:contactPerson].present? %>">
 		<label for="contactPerson" >Contact Person <span class="required">*</span></label>					

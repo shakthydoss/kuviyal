@@ -13,7 +13,7 @@ class EventController < ApplicationController
         redirect_to :action => 'home' and return;
      end
 
-     flash[:notice] = "<strong>Tips </strong>! Make sure you read the tips before posting the events"
+     flash[:notice] = "<strong>Hey </strong>! Make sure you read the tips before posting the events"
 
       @event = Event.new
 
@@ -47,20 +47,24 @@ class EventController < ApplicationController
       addrs = Address.new (params[:address])
       add_valid = true
       
+      puts "***********event_tags********\n\n******#{params[:multiple_tags]}"
+
       # validation for address
       if @event.categoryId != 3 && @event.categoryId != -1
         if !addrs.valid?
+          puts "\n\n ********** i am coming addrs.valid"
           add_valid = false
           @event.valid?
         end 
       end
       
+      @event.viewCount = 1
+
       if add_valid && @event.save
-         puts "\n\n *************** 1 I comming inside**************"
          if @event.categoryId != 3 && @event.categoryId != -1
           addrs.eventId = @event.id
+          addrs.city.downcase!
           addrs.save
-          puts "\n\n *************** 2 I comming inside**************"
          end
          flash[:notice] = "Event has been successfully added. Click <a href='/event/show/"+ @event.id.to_s + "'> here</a> view the event."
          redirect_to :action => 'home'
